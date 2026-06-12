@@ -1,4 +1,13 @@
-**Theorem.** The set of all natural numbers $n$ that equal the sum of the factorials of their own decimal digits is exactly $\{1, 2, 145, 40585\}$. More precisely, defining $f(n) = \sum_{d \,\in\, \text{digits}(n)} d!$, where $\text{digits}(n)$ denotes the list of base-10 digits of $n$, we have
-$$\{\, n \in \mathbb{N} \mid n = f(n) \,\} = \{1,\, 2,\, 145,\, 40585\}.$$
+**Theorem.** The set of natural numbers equal to their own digit-factorial sum is exactly $\{1, 2, 145, 40585\}$. That is,
+$$\{n \in \mathbb{N} \mid n = \sigma(n)\} = \{1,\, 2,\, 145,\, 40585\},$$
+where $\sigma(n)$ denotes the sum of the factorials of the decimal digits of $n$.
 
-*Proof.* Unsolved.
+*Proof.* We show the two set inclusions separately.
+
+$(\subseteq)$ Let $n \in \mathbb{N}$ satisfy $n = \sigma(n)$. We split into cases on whether $n \geq 10^7$.
+
+If $n \geq 10^7$, then by \textbf{Upper Bound} we have $\sigma(n) < n$, which contradicts the assumption $n = \sigma(n)$. This case yields no solutions.
+
+If $n < 10^7$, then $n \leq 9{,}999{,}999$ and $n = \sigma(n)$, so $n$ belongs to the set $\{m \in \mathbb{N} \mid m \leq 9{,}999{,}999 \text{ and } m = \sigma(m)\}$. By \textbf{Finite Verify}, this set equals $\{1, 2, 145, 40585\}$, so $n \in \{1, 2, 145, 40585\}$.
+
+$(\supseteq)$ Let $n \in \{1, 2, 145, 40585\}$. By \textbf{Finite Verify}, every element of $\{1, 2, 145, 40585\}$ satisfies $m \leq 9{,}999{,}999$ and $m = \sigma(m)$. In particular, $n = \sigma(n)$. $\blacksquare$
